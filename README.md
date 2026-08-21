@@ -3,15 +3,13 @@
 An independent, profile-neutral developer security baseline for macOS and Linux.
 
 This project uses `mise` to install and execute its pinned toolchain. Users do not need to install
-`pre-commit`, `gitleaks`, ShellCheck, or other project tools system-wide. The baseline has no
-dependency on `pre-commit-hook-registry` or `muximate`; either project may optionally consume a
-released baseline later.
+`pre-commit`, `gitleaks`, ShellCheck, or other project tools system-wide. It consumes the reviewed
+hook definitions from `pre-commit-hook-registry` but has no dependency on `muximate`.
 
 ## Principles
 
 - `mise.toml` and `mise.lock` are the toolchain source of truth.
-- The pre-commit template contains only the independently copied, curated hook set: pre-commit-hooks,
-  gitleaks, and Ruff.
+- The pre-commit template consumes the curated hook registry at one signed, immutable release SHA.
 - GitHub Actions uses the same locked tools as local development.
 - Git templates are opt-in and versioned; existing Git configuration is never overwritten.
 - Existing repositories are configured explicitly and their local pre-commit configuration is never

@@ -1,9 +1,8 @@
-minimum_pre_commit_version: "4.6.1"
-default_install_hook_types: [pre-commit, commit-msg]
 repos:
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: 3e8a8703264a2f4a69428a0aa4dcb512790b2c8c
+  - repo: https://github.com/aydabd/pre-commit-hook-registry
+    rev: 416dfadef72f3dda87618b9284a208f02504b9d0 # v0.1.0
     hooks:
+      - id: validate-registry-config
       - id: check-added-large-files
       - id: check-json
       - id: check-merge-conflict
@@ -11,12 +10,6 @@ repos:
       - id: detect-private-key
       - id: end-of-file-fixer
       - id: trailing-whitespace
-  - repo: https://github.com/gitleaks/gitleaks
-    rev: 83d9cd684c87d95d656c1458ef04895a7f1cbd8e
-    hooks:
       - id: gitleaks
-  - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: 2700fd5671c633760d912769c041bfcde2b9a01b
-    hooks:
       - id: ruff-check
       - id: ruff-format

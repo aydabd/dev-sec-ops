@@ -10,8 +10,9 @@
 - update cooling-period reporting; and
 - developer guidance for this project.
 
-It does not import or call `muximate` or `pre-commit-hook-registry`. Its hook configuration is an
-independent, reviewed copy of the curated upstream hook set. Pin changes require a new review here.
+It does not import or call `muximate`. Its pre-commit configuration consumes the public registry’s
+reviewed release at a full commit SHA; the registry owns hook definitions, upstream pins, and
+admission evidence. Updating that SHA is a reviewed dependency change here.
 
 `pre-commit-hook-registry` owns reviewed hook admission and catalog data. `muximate` owns profile
 selection and account isolation. A future integration must call a released `dev-sec-ops` command
@@ -19,7 +20,7 @@ explicitly; it must not copy policy or create a runtime dependency in either dir
 
 ## Tool execution
 
-`mise.toml` is the only tool-version source. `mise.lock` records resolved artifacts. Local commands
+`mise.toml` is the only local tool-version source. `mise.lock` records resolved artifacts. Local commands
 and Git hooks set `MISE_CONFIG_FILE` to this project’s configuration and execute tools with
 `mise exec --locked`. The user’s global mise configuration is not overwritten.
 
@@ -35,6 +36,5 @@ repository has no local configuration.
 ## Security boundary
 
 Hooks run without credentials and should not require network access after their environments are
-prepared. New scanners are not added to the baseline merely because they are popular: they require
-reviewed pinning, platform evidence, performance measurements, and an explicit change to the
-baseline contract.
+prepared. New scanners are not added to the baseline merely because they are popular: they must
+first be admitted by the registry, then selected here through a reviewed registry-release update.
