@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+BASELINE_ROOT="__DEV_SEC_OPS_ROOT__"
+export MISE_CONFIG_FILE="${BASELINE_ROOT}/mise.toml"
+
+if [[ ! -f .pre-commit-config.yaml ]]; then
+  echo "[dev-sec-ops] Missing .pre-commit-config.yaml; refusing to bypass checks." >&2
+  exit 1
+fi
+
+exec mise exec --locked -- pre-commit run --hook-stage pre-commit "$@"

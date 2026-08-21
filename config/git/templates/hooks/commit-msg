@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+BASELINE_ROOT="__DEV_SEC_OPS_ROOT__"
+export MISE_CONFIG_FILE="${BASELINE_ROOT}/mise.toml"
+exec mise exec --locked -- pre-commit run --hook-stage commit-msg "$@"

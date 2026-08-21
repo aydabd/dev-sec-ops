@@ -1,0 +1,26 @@
+name: Release Please
+
+on:
+  push:
+    branches: [main]
+
+permissions: {}
+
+concurrency:
+  group: release-please
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Maintain release PR
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write # Release Please updates release metadata and tags.
+      issues: write # Release Please manages release labels.
+      pull-requests: write # Release Please creates and updates the release PR.
+    steps:
+      - name: Run Release Please
+        uses: googleapis/release-please-action@45996ed1f6d02564a971a2fa1b5860e934307cf7 # v5.0.0
+        with:
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json

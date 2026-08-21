@@ -1,0 +1,27 @@
+minimum_pre_commit_version: "4.6.1"
+default_install_hook_types: [pre-commit, commit-msg]
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: 3e8a8703264a2f4a69428a0aa4dcb512790b2c8c
+    hooks:
+      - id: check-added-large-files
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-yaml
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: 83d9cd684c87d95d656c1458ef04895a7f1cbd8e
+    hooks:
+      - id: gitleaks
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: 2700fd5671c633760d912769c041bfcde2b9a01b
+    hooks:
+      - id: ruff-check
+      - id: ruff-format
+  - repo: https://github.com/compilerla/conventional-pre-commit
+    rev: 48af87c8983cb0f5ba7693448da007b731196715
+    hooks:
+      - id: conventional-pre-commit
+        stages: [commit-msg]
