@@ -50,8 +50,8 @@ trailer.
 
 ## Repository administration
 
-The local GitHub settings, security settings, environments, labels, and ruleset payloads are under
-`.github/config`, `.github/environments`, and `.github/rulesets`. They are declarative handoff files;
+The local GitHub settings, Actions permissions, security settings, environments, labels, and ruleset
+payloads are under `.github/config`, `.github/environments`, and `.github/rulesets`. They are declarative handoff files;
 the repository owner applies them after the initial push.
 
 See [docs/REPOSITORY_SETUP.md](docs/REPOSITORY_SETUP.md) for the exact post-push sequence and
