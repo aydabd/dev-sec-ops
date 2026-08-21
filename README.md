@@ -4,7 +4,7 @@ An independent, profile-neutral developer security baseline for macOS and Linux.
 
 This project uses `mise` to install and execute its pinned toolchain. Users do not need to install
 `pre-commit`, `gitleaks`, ShellCheck, or other project tools system-wide. It consumes the reviewed
-hook definitions from `pre-commit-hook-registry` but has no dependency on `muximate`.
+hook definitions from `pre-commit-hook-registry` and has no profile or account-management dependency.
 
 ## Principles
 
@@ -16,8 +16,7 @@ hook definitions from `pre-commit-hook-registry` but has no dependency on `muxim
   replaced automatically.
 - Security checks fail closed and never download credentials or scanners during hook execution.
 - Upstream updates require immutable pins, a cooling period, review evidence, and passing checks.
-- Personal/work account selection belongs to the caller, such as Muximate; this project stays
-  profile-neutral.
+- Account and profile selection belongs to the caller; this project stays profile-neutral.
 
 ## Install
 
@@ -34,8 +33,8 @@ repositories. Configure an existing repository explicitly:
 ./scripts/setup.sh --repo /absolute/path/to/repository
 ```
 
-The installer does not modify `~/.config/mise/config.toml`, Git identities, SSH configuration,
-GitHub credentials, or Muximate profiles.
+The installer does not modify `~/.config/mise/config.toml`, Git identities, SSH configuration, or
+GitHub credentials.
 
 ## Development
 

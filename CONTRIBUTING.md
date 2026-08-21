@@ -19,6 +19,6 @@ focused review and an explanation of the trust-boundary impact.
 
 ## Scope
 
-This repository owns the standalone developer baseline. It does not import code from Muximate or
-the pre-commit hook registry at runtime. Integration with either project must use an explicit,
-versioned interface.
+This repository owns the standalone developer baseline. It does not import or invoke external
+profile, account, or orchestration tooling at runtime. Integration must use an explicit, versioned
+interface called by the external system.

@@ -10,13 +10,13 @@
 - update cooling-period reporting; and
 - developer guidance for this project.
 
-It does not import or call `muximate`. Its pre-commit configuration consumes the public registry’s
-reviewed release at a full commit SHA; the registry owns hook definitions, upstream pins, and
-admission evidence. Updating that SHA is a reviewed dependency change here.
+Its pre-commit configuration consumes the public registry’s reviewed release at a full commit SHA;
+the registry owns hook definitions, upstream pins, and admission evidence. Updating that SHA is a
+reviewed dependency change here.
 
-`pre-commit-hook-registry` owns reviewed hook admission and catalog data. `muximate` owns profile
-selection and account isolation. A future integration must call a released `dev-sec-ops` command
-explicitly; it must not copy policy or create a runtime dependency in either direction.
+`pre-commit-hook-registry` owns reviewed hook admission and catalog data. External orchestration,
+profile, and account-selection systems remain outside this repository. They may call a released
+`dev-sec-ops` command explicitly, but this project does not discover, configure, or depend on them.
 
 ## Tool execution
 
