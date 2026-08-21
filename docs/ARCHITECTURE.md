@@ -10,7 +10,8 @@
 - update cooling-period reporting; and
 - developer guidance for this project.
 
-It does not import or call `muximate` or `pre-commit-hook-registry`.
+It does not import or call `muximate` or `pre-commit-hook-registry`. Its hook configuration is an
+independent, reviewed copy of the curated upstream hook set. Pin changes require a new review here.
 
 `pre-commit-hook-registry` owns reviewed hook admission and catalog data. `muximate` owns profile
 selection and account isolation. A future integration must call a released `dev-sec-ops` command

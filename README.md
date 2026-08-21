@@ -10,6 +10,8 @@ released baseline later.
 ## Principles
 
 - `mise.toml` and `mise.lock` are the toolchain source of truth.
+- The pre-commit template contains only the independently copied, curated hook set: pre-commit-hooks,
+  gitleaks, and Ruff.
 - GitHub Actions uses the same locked tools as local development.
 - Git templates are opt-in and versioned; existing Git configuration is never overwritten.
 - Existing repositories are configured explicitly and their local pre-commit configuration is never
@@ -44,8 +46,9 @@ mise install --locked
 make check
 ```
 
-`make check` is read-only. `make lint-fix` is the explicit formatting command. All commits must use
-Conventional Commits and include a `Signed-off-by` trailer.
+`make check` is read-only. `make lint-fix` is the explicit formatting command. Commit messages are
+checked by the mise-managed commitlint command, and all commits must include a `Signed-off-by`
+trailer.
 
 ## Repository administration
 

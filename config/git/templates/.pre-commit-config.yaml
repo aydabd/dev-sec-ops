@@ -20,8 +20,3 @@ repos:
     hooks:
       - id: ruff-check
       - id: ruff-format
-  - repo: https://github.com/compilerla/conventional-pre-commit
-    rev: 48af87c8983cb0f5ba7693448da007b731196715
-    hooks:
-      - id: conventional-pre-commit
-        stages: [commit-msg]
