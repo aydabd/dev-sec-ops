@@ -1,4 +1,5 @@
 {
+  "description": "Profile-neutral developer security baseline with mise-managed tools and curated pre-commit hooks for macOS and Linux.",
   "default_branch": "main",
   "has_wiki": false,
   "has_projects": true,
